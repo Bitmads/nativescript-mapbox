@@ -1,8 +1,14 @@
-/**
- * iOS and Android apis should match.
- * It doesn't matter if you export `.ios` or `.android`, either one but only one.
- */
-export * from './mapbox.ios';
 
-// Export any shared classes, constants, etc.
-export * from './mapbox.common';
+
+export declare class MapboxDirective {
+}
+
+
+export declare class CustomXmlView {
+}
+
+export declare class MyCustomView {
+}
+
+
+

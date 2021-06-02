@@ -1,12 +1,10 @@
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
-
-import { MapComponent } from "./map/map.component";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/map", pathMatch: "full" },
-    { path: "map", component: MapComponent }
+    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "home", loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule) }
 ];
 
 @NgModule({

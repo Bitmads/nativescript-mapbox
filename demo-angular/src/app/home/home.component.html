@@ -1,0 +1,9 @@
+<ActionBar>
+    <Label text="Home"></Label>
+</ActionBar>
+<GridLayout>
+
+    <Mapbox accessToken="{{accessToken}}" (mapReady)="mapReady($event)" [camera]="{zoom:2, center:{lng:0, lat:0}}"></Mapbox>
+
+    <!-- Add your page content here -->
+</GridLayout>

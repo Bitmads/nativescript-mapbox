@@ -1,12 +1,8 @@
-﻿import * as application from 'tns-core-modules/application';
+import * as app from "tns-core-modules/application";
 
-import { BundleKludge } from "nativescript-mapbox";
+app.run({ moduleName: "app-root" });
 
-application.android.on( application.AndroidApplication.activityCreatedEvent, function (args: application.AndroidActivityBundleEventData ) {
-  console.log( "app.ts: activityCreatedEvent Event: " + args.eventName + ", Activity: " + args.activity + ", Bundle: " + args.bundle);
-
-  BundleKludge.bundle = args.bundle;
-
-}); 
-
-application.start({ moduleName: "main-page" });
+/*
+Do not place any code after the application has been started as it will not
+be executed on iOS.
+*/

@@ -1,75 +1,73 @@
 {
-  "name": "nativescript-mapbox-enduco",
-  "version": "1.2.39",
-  "description": "Native Maps, by Mapbox.",
-  "main": "mapbox",
-  "typings": "index.d.ts",
-  "nativescript": {
-    "platforms": {
-      "android": "6.0.0",
-      "ios": "6.0.1"
-    },
-    "plugin": {
-      "nan": true,
-      "pan": true,
-      "core3": "true",
-      "category": "Interface"
-    }
-  },
-  "scripts": {
-    "build": "npm i && tsc --skipLibCheck",
-    "build.dist": "npm run build && cd ../publish && ./pack.sh && ./unpack.sh",
-    "demo.ios": "npm run build && cd ../demo && tns run ios --syncAllFiles",
-    "demo.android": "npm run build && cd ../demo && tns run android",
-    "demo.android.build": "npm run build && cd ../demo && tns build android --log debug",
-    "test": "npm run tslint && npm run tslint.demo && cd ../demo && tns build ios && tns build android",
-    "test.ios": "cd ../demo && tns test ios --emulator",
-    "test.ios.device": "cd ../demo && tns test ios",
-    "test.android": "cd ../demo && tns test android --justlaunch",
-    "plugin.link": "npm link && cd ../demo && npm link nativescript-mapbox && cd ../src",
-    "preparedemo": "npm run build && cd ../demo && tns plugin remove nativescript-mapbox && tns plugin add ../src && tns install",
-    "setup": "npm run build && cd ../demo && npm i",
-    "setupandinstall": "npm i && cd ../demo && npm i && cd ../src && npm run build && cd ../demo && tns plugin add ../src && cd ../src",
-    "tslint": "tslint --config '../tslint.json' '*.ts' --exclude '**/node_modules/**'",
-    "tslint.demo": "tslint --config '../tslint.json' '../demo/app/*.ts' --exclude '**/node_modules/**'",
-    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
-    "prepublishOnly": "npm run build",
-    "development.setup": "npm run setup && npm link && cd ../demo && npm link nativescript-mapbox && cd ../src",
-    "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'",
-    "demo-angular.reset": "cd ../demo-angular && npx rimraf -- hooks node_modules platforms package-lock.json",
-    "plugin.prepare": "npm run build && cd ../demo-angular && tns plugin remove nativescript-mapbox && tns plugin add ../src",
-    "clean": "npm run demo-angular.reset && npx rimraf -- node_modules package-lock.json && npm i"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/enduco/nativescript-mapbox.git"
-  },
-  "keywords": [
-    "ecosystem:nativescript",
-    "NativeScript",
-    "Map",
-    "Maps",
-    "Native Maps",
-    "Mapbox"
-  ],
-  "author": {
-    "name": "enduco",
-    "email": "hello@enduco.app"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/enduco/nativescript-mapbox/issues"
-  },
-  "homepage": "https://github.com/enduco/nativescript-mapbox",
-  "readmeFilename": "README.md",
-  "devDependencies": {
-    "tns-core-modules": "^6.0.0",
-    "tns-platform-declarations": "^6.0.0",
-    "typescript": "~3.4.5",
-    "prompt": "^1.0.0",
-    "rimraf": "^2.6.3",
-    "tslint": "^5.12.1",
-    "semver": "^5.6.0"
-  },
-  "bootstrapper": "nativescript-mapbox-enduco"
+	"name": "nativescript-mapbox-bitmads",
+	"version": "1.0.0",
+	"description": "Your awesome NativeScript plugin.",
+	"main": "nativescript-mapbox-bitmads",
+	"typings": "index.d.ts",
+	"nativescript": {
+		"platforms": {
+			"android": "6.0.0",
+			"ios": "6.0.1"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/csimpi/nativescript-nativescript-mapbox-bitmads.git"
+	},
+	"scripts": {
+		"tsc": "npm i && tsc",
+		"build": "npm run tsc && npm run build.native",
+		"build.native": "node scripts/build-native.js",
+		"tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+		"ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+		"prepack": "npm run build.native",
+		"demo.ios": "npm i && cd ../demo && tns run ios",
+		"demo.android": "npm i && cd ../demo && tns run android",
+		"demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+		"demo-angular.ios": "npm i && cd ../demo-angular && tns run ios",
+		"demo-angular.android": "npm i && cd ../demo-angular && tns run android",
+		"demo-angular.reset": "cd ../demo-angular && npx rimraf -- hooks node_modules platforms package-lock.json",
+		"plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-nativescript-mapbox-bitmads && tns plugin add ../src && cd ../demo-angular && tns plugin remove nativescript-nativescript-mapbox-bitmads && tns plugin add ../src",
+		"clean": "npm run demo.reset && npm run demo-angular.reset && npx rimraf -- node_modules package-lock.json && npm i"
+	},
+	"keywords": [
+		"NativeScript",
+		"JavaScript",
+		"Android",
+		"iOS"
+	],
+	"author": {
+		"name": "Your Name",
+		"email": "youremail@yourdomain.com"
+	},
+	"bugs": {
+		"url": "https://github.com/csimpi/nativescript-nativescript-mapbox-bitmads/issues"
+	},
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/csimpi/nativescript-nativescript-mapbox-bitmads",
+	"devDependencies": {
+		"@nativescript/core": "~7.0.0",
+		"@nativescript/types": "~7.0.0",
+		"@nativescript/webpack": "~3.0.0",
+		"@angular/common": "~6.1.0",
+		"@angular/compiler": "~6.1.0",
+		"@angular/compiler-cli": "~6.1.0",
+		"@angular/core": "~6.1.0",
+		"@angular/forms": "~6.1.0",
+		"@angular/http": "~6.1.0",
+		"@angular/platform-browser": "~6.1.0",
+		"@angular/router": "~6.1.0",
+		"nativescript-angular": "~6.1.0",
+		"prompt": "^1.0.0",
+		"rimraf": "^2.6.2",
+		"rxjs": "~6.0.0",
+		"semver": "^5.5.0",
+		"tns-core-modules": "^4.2.0",
+		"tns-platform-declarations": "^4.2.0",
+		"tslint": "^5.11.0",
+		"typescript": "~3.9.0",
+		"zone.js": "^0.8.12"
+	},
+	"dependencies": {},
+	"bootstrapper": "nativescript-plugin-seed"
 }

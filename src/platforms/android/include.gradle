@@ -1,37 +1,21 @@
+/* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
 repositories {
     mavenCentral()
 }
 
-// see https://www.mapbox.com/android-sdk/
-dependencies {
-
-    compile "com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1"
-
-    implementation "com.android.support:appcompat-v7:28.0.0"
-    implementation 'com.android.support:design:27.1.0'
-    implementation 'com.android.support:support-v4:23.0.0'
-
-    implementation "com.mapbox.mapboxsdk:mapbox-sdk-geojson:4.8.0"
-
-    implementation ('com.mapbox.mapboxsdk:mapbox-android-sdk:8.1.0'){
-        transitive=false
-    }
-
-    implementation "com.mapbox.mapboxsdk:mapbox-android-gestures:0.4.2"
-
-    // service library
-
-    implementation "com.mapbox.mapboxsdk:mapbox-sdk-services:4.8.0"
-
-    // Annotation Plugin
-
-    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v8:0.7.0'
+android {
 
 }
 
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+dependencies {
+    // Describe plugin native Android dependencies like
+	// implementation "groupName:pluginName:ver"
+    // EXAMPLE: implementation "com.facebook.fresco:fresco:0.9.0+"
+    //TODO DELETE FACEBOOK TEST PACKAGE
+	//implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
+
+    // required for 'mapbox-android-sdk'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.2.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0'
 }
